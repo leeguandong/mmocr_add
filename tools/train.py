@@ -28,9 +28,9 @@ from mmocr_add.utils import collect_env
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector.')
-    parser.add_argument('--config', default="/home/ivms/local_disk/mmocr-main/configs/textdet/psenet/psenet_r50_fpnf_600e_icdar2015.py",
+    parser.add_argument('--config', default=r"E:\comprehensive_library\mmocr_add\config\textrecog\crnn\crnn_chn_icdar2015.py",
                         help='Train config file path.')
-    parser.add_argument('--work-dir', default="./results", help='The dir to save logs and models.')
+    parser.add_argument('--work-dir', default="../results", help='The dir to save logs and models.')
     parser.add_argument(
         '--load-from', help='The checkpoint file to load from.')
     parser.add_argument(
@@ -43,7 +43,7 @@ def parse_args():
     group_gpus.add_argument(
         '--gpus',
         type=int,
-        default=2,
+        # default=2,
         help='(Deprecated, please use --gpu-id) number of gpus to use '
              '(only applicable to non-distributed training).')
     group_gpus.add_argument(
@@ -87,7 +87,7 @@ def parse_args():
     parser.add_argument(
         '--launcher',
         choices=['none', 'pytorch', 'slurm', 'mpi'],
-        default='pytorch',
+        default='none',
         help='Options for job launcher.')
     parser.add_argument('--local_rank', type=int, default=0)
 
